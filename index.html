@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <!-- Set up  Form-->
      <head><b> Path Finder</b></head>
-     <form> 
+     <table id="tbl"></table>
+     <form id="testing"> 
 
-        <label>Enter Starting Coordinate (x) </label>
-        <input id="inpt_strt_x" placeholder="Enter Start x ">
-        <label>Enter Starting Coordinate (y) </label>
-        <input id="inpt_strt_y" placeholder="Enter Start y">
-        <label>Enter Ending Coordinate (x) </label>
-        <input id="inpt_end_x" placeholder="Enter Start x "> 
-        <label>Enter Ending Coordinate (y) </label>
-        <input id="inpt_end_y" placeholder="Enter Start y">
-        <label>Enter a width </label>
+        <label for="inpt_strt_x">Enter Starting Coordinate (x) </label>
+        <input id="inpt_strt_x" placeholder="Enter Start x " type="number">
+        <label for="inpt_strt_y">Enter Starting Coordinate (y) </label>
+        <input id="inpt_strt_y" placeholder="Enter Start y" type="number">
+        <label for="inpt_end_x">Enter Ending Coordinate (x) </label>
+        <input id="inpt_end_x" placeholder="Enter Start x" type="number"> 
+        <label for="inpt_end_y">Enter Ending Coordinate (y) </label>
+        <input id="inpt_end_y" placeholder="Enter Start y" type="number">
+        <label for="width">Enter a width </label>
         <input id="width" type="number">
-        <label>Enter a Height</label>
+        <label for="height">Enter a Height</label>
         <input id="height" type="number">
-        <button id="sbtn"> Submit</button>
-        <button id="clrbtn">Clear</button>
+        
 
 
      </form>
-     
+    <button id="sbtn"> Submit</button>
+    <button id="clrbtn">Clear</button>
 
 
 </body>
