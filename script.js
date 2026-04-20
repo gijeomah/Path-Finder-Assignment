@@ -7,6 +7,15 @@ const srtyElement = document.getElementById("inpt_strt_y");
 const endxElement = document.getElementById("inpt_end_x");
 const endyElement = document.getElementById("inpt_end_y");
 const tbl = document.getElementById("tbl");
+//Declaring these variables
+let width_val;
+let height_val;
+let srtx_val;
+let srty_val;
+let endx_val;
+let endy_val;
+
+
 
 
 sbtn.addEventListener('click',function(){
@@ -17,28 +26,46 @@ sbtn.addEventListener('click',function(){
     srty_val = srtyElement.value;
     endx_val = endxElement.value;
     endy_val = endyElement.value;
+    let output = new Grid(height_val, width_val,srtx_val,srtx_val );
+
     
 });
 
 class Grid{
-    constructor(height, width,node){
+    constructor(height, width, strtx, strty){
         ///code
-        height=height;
-        width=width;
-        node=node;
+        this.height=height;
+        this.width=width;
+        this.strtx=strtx;
+        this.strty=strty;
+       // node=node;
+
         let NodesGrid =[];
-        for (let i = 0; i<=height; i++){
+        console.log('idkkk')
+        for (let i = 0; i<height; i++){
             NodesGrid.push([]);
-           let row=document.createElement(tr);
+            console.log("i");
+           let row=document.createElement('tr');
             tbl.appendChild(row);
-            for (let i = 0; i<= width; i++){
-                NodesGrid[i].push(node);
-               let tile=document.createElement(td);
+            for (let j = 0; j< width; j++){
+                console.log("j");
+                //NodesGrid[i].push(node);
+               let tile=document.createElement('td');
                row.appendChild(tile);
             };
         };
-    };
+        let goal = NodesGrid[srty_val][srtx_val];
+        goal.style.backgroundColor="green";
+        //tile.style.color = "green"
+
+    }
+
+
+
+
     
 };
-Grid(height_val, width_val, 3);
+ //const output = new Grid(height_val, width_val, 3);
+//const output = new Grid(height_val, width_val, 3);
+
 //q.push(o), q.shift()-> returns 0 
