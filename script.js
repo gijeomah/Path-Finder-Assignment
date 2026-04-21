@@ -14,9 +14,11 @@ let srtx_val;
 let srty_val;
 let endx_val;
 let endy_val;
+let NodesGrid = [];
 
 
 
+let grid = null;
 
 sbtn.addEventListener('click',function(){
     //Obtains all values
@@ -26,52 +28,76 @@ sbtn.addEventListener('click',function(){
     srty_val = srtyElement.value;
     endx_val = endxElement.value;
     endy_val = endyElement.value;
-    let output = new Grid(height_val, width_val,srtx_val,srtx_val );
+    grid = new Grid(height_val, width_val,srtx_val,srtx_val,endx_val,endy_val );
 
     
 });
 class Node{
-    constructor(type, tblData)
-    this.type=type
-    this.tblData=tblData
+    constructor (type, td){
+        this.type=type
+        this.td=td
+        console.log(td);
+        //tblData[strty][strtx].style.backgroundColor="green";
+        //tblData.style.backgroundColor="green";
+    }
+    //function to find the neigbors 
     
 }
 
 class Grid{
-    constructor(height, width, strtx, strty){
+    constructor(height, width, startx, starty,endx,endy){
         ///code
         this.height=height;
         this.width=width;
-        this.strtx=strtx;
-        this.strty=strty;
+        this.startx=startx;
+        this.starty=starty;
+        this.endx=endx;
+        this.endy=endy;
        // node=node;
-
-        let NodesGrid =[];
+        this.NodesGrid = [];
         console.log('idkkk')
         for (let i = 0; i<height; i++){
             NodesGrid.push([]);
             console.log("i");
-           let row=document.createElement('tr');
+            let row=document.createElement('tr');
             tbl.appendChild(row);
             for (let j = 0; j< width; j++){
                 console.log("j");
                 //let node = 
                let tile=document.createElement('td');
+               //Create walls
+               tile.addEventListener('click',function(){tile.style.backgroundColor="black"});
                row.appendChild(tile);
-               NodesGrid[i].push(new Node("regular",tile);
+               NodesGrid[i].push(new Node("regular",tile));
             };
         };
-        //let goal = NodesGrid[srty_val][srtx_val];
-        //goal.style.backgroundColor="green";
+
+        //Colorinig the starting
+        let start = NodesGrid[starty][startx];
+        console.log(start);
+        start.td.style.backgroundColor="green";
+        let goal = NodesGrid[endy][endx];
+        console.log(goal);
+        goal.td.style.backgroundColor="red";
+        
+        //tile.addEventListener('click', function(){
+        //td.style.backgroundColor="black";})
+        
+
+
         //tile.style.color = "green"
 
     }
-
-
-
-
-    
 };
+//Create walls
+//td.addEventListener('click')
+//function to find the neigbors 
+function neigbors(){
+    //find the neighbors. 
+}
+
+
+
  //const output = new Grid(height_val, width_val, 3);
 //const output = new Grid(height_val, width_val, 3);
 
