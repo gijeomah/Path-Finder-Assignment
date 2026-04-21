@@ -30,6 +30,12 @@ sbtn.addEventListener('click',function(){
 
     
 });
+class Node{
+    constructor(type, tblData)
+    this.type=type
+    this.tblData=tblData
+    
+}
 
 class Grid{
     constructor(height, width, strtx, strty){
@@ -49,13 +55,14 @@ class Grid{
             tbl.appendChild(row);
             for (let j = 0; j< width; j++){
                 console.log("j");
-                //NodesGrid[i].push(node);
+                //let node = 
                let tile=document.createElement('td');
                row.appendChild(tile);
+               NodesGrid[i].push(new Node("regular",tile);
             };
         };
-        let goal = NodesGrid[srty_val][srtx_val];
-        goal.style.backgroundColor="green";
+        //let goal = NodesGrid[srty_val][srtx_val];
+        //goal.style.backgroundColor="green";
         //tile.style.color = "green"
 
     }
