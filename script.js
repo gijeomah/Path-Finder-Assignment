@@ -66,7 +66,7 @@ class Grid{
                 //let node = 
                let tile=document.createElement('td');
                //Create walls
-               tile.addEventListener('click',function(){tile.style.backgroundColor="black"});
+               let wall=tile.addEventListener('click',function(){tile.style.backgroundColor="black"});
                row.appendChild(tile);
                NodesGrid[i].push(new Node("regular",tile));
             };
