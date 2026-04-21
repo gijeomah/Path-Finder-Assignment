@@ -32,8 +32,8 @@ sbtn.addEventListener('click',function(){
 });
 class Node{
     constructor(type, tblData)
-    this.type=type;
-    this.tblData=tblData;
+    this.type=type
+    this.tblData=tblData
     
 }
 
