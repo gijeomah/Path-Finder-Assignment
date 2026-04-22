@@ -7,6 +7,7 @@ const srtyElement = document.getElementById("inpt_strt_y");
 const endxElement = document.getElementById("inpt_end_x");
 const endyElement = document.getElementById("inpt_end_y");
 const tbl = document.getElementById("tbl");
+const clrbtn = document.getElementById("clrbtn");
 //Declaring these variables
 let width_val;
 let height_val;
@@ -15,7 +16,9 @@ let srty_val;
 let endx_val;
 let endy_val;
 let NodesGrid = [];
-
+let neigh;
+let que = [];
+let curr = null;
 
 
 let grid = null;
@@ -29,6 +32,22 @@ sbtn.addEventListener('click',function(){
     endx_val = endxElement.value;
     endy_val = endyElement.value;
     grid = new Grid(height_val, width_val,srtx_val,srtx_val,endx_val,endy_val );
+    grid.neighbors();
+    console.log(grid)
+    //while (que.length!=0){
+    //curr=  deque
+    // find the children of the current
+    //
+    //}
+
+    
+});
+//clear btn
+clrbtn.addEventListener('click',function(){
+    //Obtains all values
+    
+    //grid = new Grid(null);
+
 
     
 });
@@ -37,9 +56,12 @@ class Node{
         this.type=type
         this.td=td
         console.log(td);
+        this.children=[];
+
         //tblData[strty][strtx].style.backgroundColor="green";
         //tblData.style.backgroundColor="green";
     }
+
     //function to find the neigbors 
     
 }
@@ -57,7 +79,7 @@ class Grid{
         this.NodesGrid = [];
         console.log('idkkk')
         for (let i = 0; i<height; i++){
-            NodesGrid.push([]);
+            this.NodesGrid.push([]);
             console.log("i");
             let row=document.createElement('tr');
             tbl.appendChild(row);
@@ -68,15 +90,15 @@ class Grid{
                //Create walls
                let wall=tile.addEventListener('click',function(){tile.style.backgroundColor="black"});
                row.appendChild(tile);
-               NodesGrid[i].push(new Node("regular",tile));
+               this.NodesGrid[i].push(new Node("regular",tile));
             };
         };
 
         //Colorinig the starting
-        let start = NodesGrid[starty][startx];
+        let start = this.NodesGrid[starty][startx];
         console.log(start);
         start.td.style.backgroundColor="green";
-        let goal = NodesGrid[endy][endx];
+        let goal = this.NodesGrid[endy][endx];
         console.log(goal);
         goal.td.style.backgroundColor="red";
         
@@ -88,13 +110,33 @@ class Grid{
         //tile.style.color = "green"
 
     }
+    //function to find the neigbors 
+    neighbors(){
+        //find the neighbors. 
+        for (let i=0; i<this.NodesGrid.length; i++){
+            console.log("testing");
+            for (let j=0; j<this.NodesGrid[i].length; j++)
+            {
+                console.log("neighbors");
+                if ((i-1) >= 0){
+                    this.NodesGrid[i][j].children.push(this.NodesGrid[i-1][j]);
+                };
+                // if(this.NodesGrid[i][j]>0 || this.NodesGrid[i][j]!= wall){
+                    this.NodesGrid[i][j].children.push(this.NodesGrid[i][j-1]);
+                // };
+                // if(this.NodesGrid[i][j]>0 || this.NodesGrid[i][j]!= wall){
+                    this.NodesGrid[i][j].children.push(this.NodesGrid[i+1][j]);
+                // };
+                // if(this.NodesGrid[i][j]>0 || this.NodesGrid[i][j]!= wall){
+                    this.NodesGrid[i][j].children.push(this.NodesGrid[i][j+1]);
+                // }
+            }
+        }
+    };
 };
+
 //Create walls
 //td.addEventListener('click')
-//function to find the neigbors 
-function neigbors(){
-    //find the neighbors. 
-}
 
 
 
