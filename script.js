@@ -46,6 +46,7 @@ sbtn.addEventListener('click',function(){
 clrbtn.addEventListener('click',function(){
     //Obtains all values
     
+    
     //grid = new Grid(null);
 
 
@@ -57,6 +58,9 @@ class Node{
         this.td=td
         console.log(td);
         this.children=[];
+        //for item in this.children if object.is(td,type);
+        //break or push
+        //els if check if in children continue /// push ans shift. 
 
         //tblData[strty][strtx].style.backgroundColor="green";
         //tblData.style.backgroundColor="green";
@@ -90,6 +94,7 @@ class Grid{
                //Create walls
                let wall=tile.addEventListener('click',function(){tile.style.backgroundColor="black"});
                row.appendChild(tile);
+               this.NodesGrid[i].push(new Node(wall,tile));
                this.NodesGrid[i].push(new Node(wall,tile));
             };
         };
