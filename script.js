@@ -90,7 +90,7 @@ class Grid{
                //Create walls
                let wall=tile.addEventListener('click',function(){tile.style.backgroundColor="black"});
                row.appendChild(tile);
-               this.NodesGrid[i].push(new Node("regular",tile));
+               this.NodesGrid[i].push(new Node(wall,tile));
             };
         };
 
@@ -121,15 +121,15 @@ class Grid{
                 if ((i-1) >= 0){
                     this.NodesGrid[i][j].children.push(this.NodesGrid[i-1][j]);
                 };
-                // if(this.NodesGrid[i][j]>0 || this.NodesGrid[i][j]!= wall){
+                 if((j-1)>=0){
                     this.NodesGrid[i][j].children.push(this.NodesGrid[i][j-1]);
-                // };
-                // if(this.NodesGrid[i][j]>0 || this.NodesGrid[i][j]!= wall){
+                };
+                if((i+1)>=0){
                     this.NodesGrid[i][j].children.push(this.NodesGrid[i+1][j]);
                 // };
-                // if(this.NodesGrid[i][j]>0 || this.NodesGrid[i][j]!= wall){
+                if((j+1)>=0){
                     this.NodesGrid[i][j].children.push(this.NodesGrid[i][j+1]);
-                // }
+                }
             }
         }
     };
