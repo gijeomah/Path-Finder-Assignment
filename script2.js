@@ -7,7 +7,7 @@ const srtyElement = document.getElementById("inpt_strt_y");
 const endxElement = document.getElementById("inpt_end_x");
 const endyElement = document.getElementById("inpt_end_y");
 const tbl = document.getElementById("tbl");
-const clrbtn = document.getElementById("clrbtn");
+const runbtn = document.getElementById("runbtn");
 //Declaring these variables
 let width_val;
 let height_val;
@@ -82,7 +82,7 @@ sbtn.addEventListener('click',function(){
 });
 
 //clear btn
-clrbtn.addEventListener('click',function(){
+runbtn.addEventListener('click',function(){
     //Obtains all values
       let curr;
     que.push(grid.start);
