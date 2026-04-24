@@ -47,7 +47,44 @@ sbtn.addEventListener('click',function(){
         // else
         // add child to the queue
     //}
-    let curr;
+    // let curr;
+    // que.push(grid.start);
+    // let hitGoal = false;
+    // while(que.length!=0 && !hitGoal){
+    //     curr = que.shift();
+    //     for(let child of curr.children){
+
+    //         if (visited.includes(child)){
+    //             continue;
+    //         }
+    //         else if (child.td == grid.goal.td){
+    //             hitGoal = true;
+    //             break;
+    //         }
+    //         else if (child.td.style.backgroundColor == "black"){
+    //             continue;
+    //         }
+    //         else{
+    //             que.push(child);
+    //             visited.push(child);
+    //         }
+    //     }
+    // }
+
+    // for (let node of visited){
+    //     if (node.td.style.backgroundColor != "green")
+    //     {
+    //     node.td.style.backgroundColor = "lightgreen";
+    //     }
+    // }
+
+    
+});
+
+//clear btn
+clrbtn.addEventListener('click',function(){
+    //Obtains all values
+      let curr;
     que.push(grid.start);
     let hitGoal = false;
     while(que.length!=0 && !hitGoal){
@@ -77,16 +114,16 @@ sbtn.addEventListener('click',function(){
         node.td.style.backgroundColor = "lightgreen";
         }
     }
-
-    
-});
-
-//clear btn
-clrbtn.addEventListener('click',function(){
-    //Obtains all values
     
     
     //grid = new Grid(null);
+    for (let node of visited){
+        if (node.td.style.backgroundColor != "green")
+        {
+        node.td.style.backgroundColor = "lightgreen";
+        }
+    }
+
 
 
     
