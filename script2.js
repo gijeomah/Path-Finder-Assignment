@@ -90,6 +90,8 @@ runbtn.addEventListener('click',function(){
     while(que.length!=0 && !hitGoal){
         curr = que.shift();
         for(let child of curr.children){
+            //parent of child to current 
+            child.parent = curr;
 
             if (visited.includes(child)){
                 continue;
@@ -114,15 +116,19 @@ runbtn.addEventListener('click',function(){
         node.td.style.backgroundColor = "lightgreen";
         }
     }
-    
-    
-    //grid = new Grid(null);
-    for (let node of visited){
-        if (node.td.style.backgroundColor != "green")
-        {
-        node.td.style.backgroundColor = "lightgreen";
-        }
+    while (curr.td != grid.start.td){
+        curr=curr.parent;
+        curr.td.style.backgroundColor="red";
     }
+    
+    // //grid = new Grid(null);
+    // for (let node of visited){
+    //     if (node.td.style.backgroundColor != "green")
+    //     {
+    //     node.td.style.backgroundColor = "lightgreen";
+    //     }
+    // }
+    
 
 
 
@@ -133,6 +139,7 @@ class Node{
         this.td=td
         console.log(td);
         this.children=[];
+        this.parent;
     }
 } 
 
